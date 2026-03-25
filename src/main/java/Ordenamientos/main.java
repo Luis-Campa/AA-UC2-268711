@@ -5,26 +5,30 @@
 package Ordenamientos;
 
 import static Ordenamientos.OrdenaminetoPorInsercion.insertionSort;
+import java.util.Arrays;
 
 /**
  *
  * @author luisantoniocamparubio
  */
 public class main {
- public static void main(String[] args) {
-        int[] arr = {5, 3, 8, 4, 2};
+   public static void main(String[] args) {
 
-        System.out.println("Arreglo original:");
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
+        int[] original = {4, 2, 4, 3, 1, 4};
 
-        insertionSort(arr);
+        System.out.println("Arreglo original: " + Arrays.toString(original));
 
-        System.out.println("\nArreglo ordenado:");
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
+        // Copias
+        int[] arrQuick = Arrays.copyOf(original, original.length);
+        int[] arrInsertion = Arrays.copyOf(original, original.length);
+
+        // 🔹 QuickSort
+        Ordenamientos.quicksort(arrQuick, 0, arrQuick.length - 1);
+        System.out.println("QuickSort: " + Arrays.toString(arrQuick));
+
+        // 🔹 InsertionSort
+        Ordenamientos.insertionSort(arrInsertion);
+        System.out.println("InsertionSort: " + Arrays.toString(arrInsertion));
     }
     
 }
